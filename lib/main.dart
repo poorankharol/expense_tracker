@@ -1,13 +1,20 @@
 import 'package:expense_tracker/widgets/expenses.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/services.dart';
 
-var kColorScheme = ColorScheme.fromSeed(seedColor: const Color.fromARGB(255,148,204,77));
-var kDarkColorScheme =
-    ColorScheme.fromSeed(brightness: Brightness.dark,seedColor: const Color.fromARGB(255, 14, 20, 6));
+var kColorScheme =
+    ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 148, 204, 77));
+var kDarkColorScheme = ColorScheme.fromSeed(
+    brightness: Brightness.dark,
+    seedColor: const Color.fromARGB(255, 14, 20, 6));
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  // ]).then(
+  //   (value) =>
   runApp(
     MaterialApp(
       darkTheme: ThemeData.dark().copyWith(
@@ -19,9 +26,8 @@ void main() {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: kDarkColorScheme.primaryContainer,
-            foregroundColor: kDarkColorScheme.onPrimaryContainer
-          ),
+              backgroundColor: kDarkColorScheme.primaryContainer,
+              foregroundColor: kDarkColorScheme.onPrimaryContainer),
         ),
       ),
       theme: ThemeData().copyWith(
@@ -56,4 +62,5 @@ void main() {
       home: const Expenses(),
     ),
   );
+  //);
 }
