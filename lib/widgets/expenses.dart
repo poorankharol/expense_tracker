@@ -1,4 +1,5 @@
 import 'package:expense_tracker/models/expense.dart';
+import 'package:expense_tracker/widgets/chart/chart.dart';
 import 'package:expense_tracker/widgets/expenses_list/expenses_list.dart';
 import 'package:expense_tracker/widgets/new_expense.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class _ExpensesState extends State<Expenses> {
 
   _openAddExpense() {
     showModalBottomSheet(
-      isScrollControlled: true,
+      isScrollControlled: false,
       context: context,
       builder: (ctx) => NewExpense(
         onAddExpense: _addExpense,
@@ -86,6 +87,7 @@ class _ExpensesState extends State<Expenses> {
       body: SafeArea(
         child: Column(
           children: [
+            Chart(expenses: registerExpenses),
             Expanded(
               child: mainContent,
             )
