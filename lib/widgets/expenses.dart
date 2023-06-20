@@ -28,6 +28,7 @@ class _ExpensesState extends State<Expenses> {
   _openAddExpense() {
     showModalBottomSheet(
       isScrollControlled: true,
+      useSafeArea: true,
       context: context,
       builder: (ctx) => NewExpense(
         onAddExpense: _addExpense,
@@ -98,7 +99,9 @@ class _ExpensesState extends State<Expenses> {
               )
             : Row(
                 children: [
-                  Expanded(child: Chart(expenses: registerExpenses)),
+                  Expanded(
+                    child: Chart(expenses: registerExpenses),
+                  ),
                   Expanded(
                     child: mainContent,
                   ),
